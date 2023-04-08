@@ -1,9 +1,4 @@
 ﻿using OnlineMuhasebeServer.Domain.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineMuhasebeServer.Domain.AppEntities
 {
@@ -15,6 +10,11 @@ namespace OnlineMuhasebeServer.Domain.AppEntities
         public string TaxDepartment { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+
+        public string ServerName { get; set; }
+        public string DatabaseName { get; set; }
+        public string UserId { get; set; }
+        public string Password { get; set; }
 
     }
 }
