@@ -11,3 +11,4 @@ Kullandığım teknolojiler, patternler:
 -  Fluent Validation
 -  CQRS
 -  Generic Repository Pattern
+-  UnitTest
