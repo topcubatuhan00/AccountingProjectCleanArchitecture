@@ -12,6 +12,5 @@ namespace OnlineMuhasebeServer.Domain.CompanyEntities
         public string Code { get; set; }
         public string Name { get; set; }
         public char Type { get; set; } // main group - sub group  - ... 
-        public string CompanyId { get; set; } 
     }
 }

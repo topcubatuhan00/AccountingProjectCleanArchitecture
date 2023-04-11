@@ -4,7 +4,7 @@ namespace OnlineMuhasebeServer.Domain
 {
     public interface IUnitOfWork
     {
-        void CreateDbContextInstance(DbContext dbContext);
+        void SetDbContextInstance(DbContext dbContext);
         Task<int> SaveChangesAsync();
     }
 }

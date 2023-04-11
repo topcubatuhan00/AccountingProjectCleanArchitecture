@@ -24,7 +24,7 @@ namespace OnlineMuhasebeServer.Persistance.Repositories
 
         public DbSet<T> Entity { get; set; }
 
-        public void CreateDbContextInstance(DbContext dbContext)
+        public void SetDbContextInstance(DbContext dbContext)
         {
             _companyDbContext = (CompanyDbContext)dbContext;
             Entity = _companyDbContext.Set<T>();
