@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Identity;
+using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 using OnlineMuhasebeServer.WebApi.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,4 +23,19 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+using (var scoped = app.Services.CreateScope())
+{
+    var userManager = scoped.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+    if (!userManager.Users.Any())
+    {
+        userManager.CreateAsync(new AppUser
+        {
+            UserName = "batu",
+            Email = "topcubatuhan00@gmail.com",
+            Id = Guid.NewGuid().ToString(),
+            NameLastName = "batuhan topcu"
+        },"Password12*").Wait();
+    }
+}
+
+    app.Run();
