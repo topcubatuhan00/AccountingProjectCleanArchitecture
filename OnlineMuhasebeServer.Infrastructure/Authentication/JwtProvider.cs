@@ -34,7 +34,7 @@ namespace OnlineMuhasebeServer.Infrastructure.Authentication
 
             JwtSecurityToken jwtSecurityToken = new(
                 issuer: _jwtOptions.Issuer,
-                audience : _jwtOptions.Audience,
+                audience: _jwtOptions.Audience,
                 claims: claims,
                 notBefore: DateTime.Now,
                 expires: expires,

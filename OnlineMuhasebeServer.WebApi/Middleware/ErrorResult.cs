@@ -16,7 +16,7 @@ namespace OnlineMuhasebeServer.WebApi.Middleware
         public int StatusCode { get; set; }
     }
 
-    public class ValidationErrorDetails : ErrorStatusCode 
+    public class ValidationErrorDetails : ErrorStatusCode
     {
         public IEnumerable<string> Errors { get; set; }
     }

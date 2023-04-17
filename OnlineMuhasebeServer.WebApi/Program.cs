@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.WebApi.Configurations;
 using OnlineMuhasebeServer.WebApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.InstallServices(builder.Configuration,typeof(IServiceInstaller).Assembly);
+builder.Services.InstallServices(builder.Configuration, typeof(IServiceInstaller).Assembly);
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -34,8 +34,8 @@ using (var scoped = app.Services.CreateScope())
             Email = "topcubatuhan00@gmail.com",
             Id = Guid.NewGuid().ToString(),
             NameLastName = "batuhan topcu"
-        },"Password12*").Wait();
+        }, "Password12*").Wait();
     }
 }
 
-    app.Run();
+app.Run();

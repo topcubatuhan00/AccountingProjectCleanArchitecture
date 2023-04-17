@@ -9,8 +9,8 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
 {
     public sealed class CompanyService : ICompanyService
     {
-        private static readonly Func<AppDbContext, string , Task<Company?>> GetCompanyByNameCompiled = 
-            EF.CompileAsyncQuery((AppDbContext context, string name)=>
+        private static readonly Func<AppDbContext, string, Task<Company?>> GetCompanyByNameCompiled =
+            EF.CompileAsyncQuery((AppDbContext context, string name) =>
             context.Set<Company>().FirstOrDefault(p => p.Name == name));
         private readonly AppDbContext _appDbContext;
         private readonly IMapper _mapper;
@@ -21,7 +21,7 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
             _mapper = mapper;
         }
 
-        public async Task CreateCompany(CreateCompanyRequest request)
+        public async Task CreateCompany(CreateCompanyCommand request)
         {
             Company company = _mapper.Map<Company>(request);
             company.Id = Guid.NewGuid().ToString();
@@ -31,8 +31,8 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
 
         public async Task<Company?> GetCompanyByName(string name)
         {
-            return await GetCompanyByNameCompiled(_appDbContext,name);
-            
+            return await GetCompanyByNameCompiled(_appDbContext, name);
+
         }
 
         public async Task MigrateCompanyDatabases()
@@ -41,8 +41,8 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
             foreach (var item in companies)
             {
                 var db = new CompanyDbContext(item);
-                db.Database.Migrate();  
-                
+                db.Database.Migrate();
+
             }
         }
     }

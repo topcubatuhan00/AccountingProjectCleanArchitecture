@@ -16,7 +16,7 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyService
         private readonly IMapper _mapper;
         private CompanyDbContext _context;
 
-        public UCAFService(IMapper mapper,IUCAFCommandRepository commandRepository, IContextService contextService, IUnitOfWork unitOfWork = null)
+        public UCAFService(IMapper mapper, IUCAFCommandRepository commandRepository, IContextService contextService, IUnitOfWork unitOfWork = null)
         {
             _commandRepository = commandRepository;
             _contextService = contextService;

@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using OnlineMuhasebeServer.Application.Features.AppFeauters.CompanyFeatures.Commands.CreateCompany;
+using OnlineMuhasebeServer.Application.Features.AppFeauters.RoleFeatures.Commands.CreateRole;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateUCAF;
 using OnlineMuhasebeServer.Domain.AppEntities;
+using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 using OnlineMuhasebeServer.Domain.CompanyEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineMuhasebeServer.Persistance.Mapping
 {
@@ -15,8 +12,9 @@ namespace OnlineMuhasebeServer.Persistance.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<CreateCompanyRequest, Company>().ReverseMap();
+            CreateMap<CreateCompanyCommand, Company>().ReverseMap();
             CreateMap<CreateUCAFRequest, UniformChartOfAccount>().ReverseMap();
+            CreateMap<CreateRoleRequest, AppRole>().ReverseMap();
         }
     }
 }

@@ -1,23 +1,23 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Application.Abstractions;
+using OnlineMuhasebeServer.Application.Messaging;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
 namespace OnlineMuhasebeServer.Application.Features.AppFeauters.AppUserFeatures.Login
 {
-    public sealed class LoginHandler : IRequestHandler<LoginRequest, LoginResponse>
+    public sealed class LoginCommandHandler : ICommandHandler<LoginCommand, LoginCommandResponse>
     {
         private readonly IJwtProviders _jwtProviders;
         private readonly UserManager<AppUser> _userManager;
 
-        public LoginHandler(IJwtProviders jwtProviders, UserManager<AppUser> userManager)
+        public LoginCommandHandler(IJwtProviders jwtProviders, UserManager<AppUser> userManager)
         {
             _jwtProviders = jwtProviders;
             _userManager = userManager;
         }
 
-        public async Task<LoginResponse> Handle(LoginRequest request, CancellationToken cancellationToken)
+        public async Task<LoginCommandResponse> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             AppUser user = await _userManager.Users.Where(p => p.UserName == request.EmailOrUserName ||
             p.Email == request.EmailOrUserName).FirstOrDefaultAsync();
@@ -28,13 +28,11 @@ namespace OnlineMuhasebeServer.Application.Features.AppFeauters.AppUserFeatures.
 
             List<string> roles = new();
 
-            LoginResponse response = new()
-            {
-                Email = user.Email,
-                NameLastName = user.NameLastName,
-                UserId = user.Id,
-                Token = await _jwtProviders.CreateTokenAsync(user, roles)
-            };
+            LoginCommandResponse response = new(
+                user.Email,
+                user.NameLastName,
+                user.Id,
+                await _jwtProviders.CreateTokenAsync(user, roles));
 
             return response;
         }
