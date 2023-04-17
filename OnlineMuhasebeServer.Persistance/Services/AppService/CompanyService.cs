@@ -21,12 +21,12 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
             _mapper = mapper;
         }
 
-        public async Task CreateCompany(CreateCompanyCommand request)
+        public async Task CreateCompany(CreateCompanyCommand request, CancellationToken cancellationToken)
         {
             Company company = _mapper.Map<Company>(request);
             company.Id = Guid.NewGuid().ToString();
-            await _appDbContext.Set<Company>().AddAsync(company);
-            await _appDbContext.SaveChangesAsync();
+            await _appDbContext.Set<Company>().AddAsync(company, cancellationToken);
+            await _appDbContext.SaveChangesAsync(cancellationToken);
         }
 
         public async Task<Company?> GetCompanyByName(string name)

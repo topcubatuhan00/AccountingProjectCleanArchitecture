@@ -6,7 +6,7 @@ namespace OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures
     public sealed record CreateUCAFCommand(
             string Code,
             string Name,
-            char Type,
+            string Type,
             string CompanyId
         ) : ICommand<CreateUCAFCommandResponse>;
     
