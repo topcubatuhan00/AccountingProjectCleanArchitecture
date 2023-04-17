@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OnlineMuhasebeServer.Application.Features.AppFeauters.RoleFeatures.Commands.CreateAllRoles;
 using OnlineMuhasebeServer.Application.Features.AppFeauters.RoleFeatures.Commands.CreateRole;
 using OnlineMuhasebeServer.Application.Features.AppFeauters.RoleFeatures.Commands.RoleDelete;
 using OnlineMuhasebeServer.Application.Features.AppFeauters.RoleFeatures.Commands.UpdateRole;
@@ -45,6 +46,14 @@ namespace OnlineMuhasebeServer.Presentation.Controller
             DeleteRoleCommandResponse response = await _mediator.Send(request);
             return Ok(response);
 
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> CreateAllRoles()
+        {
+            CreateAllRolesCommand request = new();
+            CreateAllRolesCommandResponse response = await _mediator.Send(request);
+            return Ok(response);
         }
     }
 }

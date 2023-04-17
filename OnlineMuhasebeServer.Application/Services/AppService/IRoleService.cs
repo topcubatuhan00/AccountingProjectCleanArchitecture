@@ -11,5 +11,7 @@ namespace OnlineMuhasebeServer.Application.Services.AppService
         Task<IList<AppRole>> GetAllRolesAsync();
         Task<AppRole> GetByCode(string code);
         Task<AppRole> GetById(string code);
+
+        Task AddRangeAsync(IEnumerable<AppRole> appRoles);
     }
 }
