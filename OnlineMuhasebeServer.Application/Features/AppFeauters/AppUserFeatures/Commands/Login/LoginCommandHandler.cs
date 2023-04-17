@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.Application.Abstractions;
 using OnlineMuhasebeServer.Application.Messaging;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
-namespace OnlineMuhasebeServer.Application.Features.AppFeauters.AppUserFeatures.Login
+namespace OnlineMuhasebeServer.Application.Features.AppFeauters.AppUserFeatures.Commands.Login
 {
     public sealed class LoginCommandHandler : ICommandHandler<LoginCommand, LoginCommandResponse>
     {

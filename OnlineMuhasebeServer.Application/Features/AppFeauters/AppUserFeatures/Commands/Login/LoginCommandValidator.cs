@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace OnlineMuhasebeServer.Application.Features.AppFeauters.AppUserFeatures.Login
+namespace OnlineMuhasebeServer.Application.Features.AppFeauters.AppUserFeatures.Commands.Login
 {
     public sealed class LoginCommandValidator : AbstractValidator<LoginCommand>
     {
