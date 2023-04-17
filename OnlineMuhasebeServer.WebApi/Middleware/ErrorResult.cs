@@ -5,14 +5,14 @@ namespace OnlineMuhasebeServer.WebApi.Middleware
     public class ErrorResult : ErrorStatusCode
     {
         public string Messgage { get; set; }
-        public override string ToString()
-        {
-            return JsonConvert.SerializeObject(this);
-        }
     }
 
     public class ErrorStatusCode
     {
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
         public int StatusCode { get; set; }
     }
 

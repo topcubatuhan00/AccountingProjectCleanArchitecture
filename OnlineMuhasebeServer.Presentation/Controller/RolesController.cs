@@ -15,9 +15,9 @@ namespace OnlineMuhasebeServer.Presentation.Controller
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> CreateRole(CreateRoleRequest createRoleRequest)
+        public async Task<IActionResult> CreateRole(CreateRoleCommand createRoleRequest)
         {
-            CreateRoleResponse response = await _mediator.Send(createRoleRequest);
+            CreateRoleCommandResponse response = await _mediator.Send(createRoleRequest);
             return Ok(response);
         }
 
@@ -25,27 +25,24 @@ namespace OnlineMuhasebeServer.Presentation.Controller
         [HttpGet("[action]")]
         public async Task<IActionResult> GetAllRoles()
         {
-            GetAllRolesRequest request = new();
-            GetAllRolesResponse response = await _mediator.Send(request);
+            GetAllRolesQuery request = new();
+            GetAllRolesQueryResponse response = await _mediator.Send(request);
             return Ok(response);
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> UpdateRole(UpdateRoleRequest updateRoleRequest)
+        public async Task<IActionResult> UpdateRole(UpdateRoleCommand updateRoleRequest)
         {
-            UpdateRoleResponse response = await _mediator.Send(updateRoleRequest);
+            UpdateRoleCommandResponse response = await _mediator.Send(updateRoleRequest);
             return Ok(response);
         }
 
         [HttpGet("[action]/{id}")]
         public async Task<IActionResult> DeleteRole(string id)
         {
-            DeleteRoleRequest request = new()
-            {
-                Id = id,
-            };
+            DeleteRoleCommand request = new(Id: id);
 
-            DeleteRoleResponse response = await _mediator.Send(request);
+            DeleteRoleCommandResponse response = await _mediator.Send(request);
             return Ok(response);
 
         }
