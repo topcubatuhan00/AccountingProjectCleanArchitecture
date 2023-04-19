@@ -1,4 +1,5 @@
-﻿using OnlineMuhasebeServer.Domain.AppEntities.Identity;
+﻿using OnlineMuhasebeServer.Domain.AppEntities;
+using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
 namespace OnlineMuhasebeServer.Domain.Roles;
 
@@ -38,6 +39,29 @@ public sealed class RoleList
         return roles;
     }
 
+    public static List<MainRole> GetStaticMainRole()
+    {
+        List<MainRole> mainRoles = new List<MainRole>
+        {
+            new MainRole(
+                Guid.NewGuid().ToString(),
+                "Admin",
+                true),
+
+            new MainRole(
+                Guid.NewGuid().ToString(),
+                "Yönetici",
+                true),
+
+            new MainRole(
+                Guid.NewGuid().ToString(),
+                "Kullanıcı",
+                true),
+        };
+
+        return mainRoles;
+    }
+         
     #region RoleCodeAndNames
     public static string UCAFCreateCode = "UCAF.Create";
     public static string UCAFCreateName = "Hesap planı kayıt.";

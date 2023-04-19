@@ -5,7 +5,7 @@ using OnlineMuhasebeServer.Domain.AppEntities;
 using OnlineMuhasebeServer.Persistance.Services.AppService;
 using Shouldly;
 
-namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.CompanyFeatures.Commands
+namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.CompanyFeatures
 {
     public sealed class CreateCompanyCommandUnitTest
     {
@@ -19,7 +19,7 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.CompanyFeatures.Com
         [Fact]
         public async Task CompanyShouldBeNull()
         {
-            Company company = (await _companyService.Object.GetCompanyByName("Batuhan"))!;
+            Company company = (await _companyService.Object.GetCompanyByName("Batuhan", default))!;
             company.ShouldBeNull();
         }
 
@@ -27,10 +27,10 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.CompanyFeatures.Com
         public async Task CreateCompanyCommandResponseShouldNotBeNull()
         {
             var command = new CreateCompanyCommand(
-                    Name:"Batu ltd",
+                    Name: "Batu ltd",
                     ServerName: "localhost",
                     DatabaseName: "TopcuMuhasebe",
-                    UserId:"",
+                    UserId: "",
                     Password: ""
                 );
             var handler = new CreateCompanyCommandHandler(_companyService.Object);

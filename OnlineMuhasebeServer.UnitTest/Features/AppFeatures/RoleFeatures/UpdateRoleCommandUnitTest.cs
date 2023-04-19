@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.Application.Services.AppService;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 using Shouldly;
 
-namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.RoleFeatures.Commands
+namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.RoleFeatures
 {
     public sealed class UpdateRoleCommandUnitTest
     {
@@ -42,7 +42,7 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.RoleFeatures.Comman
                 .ReturnsAsync(new AppRole());
 
             var handler = new UpdateRoleCommandHandler(_roleService.Object);
-            UpdateRoleCommandResponse response = await handler.Handle(command,default);
+            UpdateRoleCommandResponse response = await handler.Handle(command, default);
 
             response.ShouldNotBeNull();
             response.Message.ShouldNotBeEmpty();

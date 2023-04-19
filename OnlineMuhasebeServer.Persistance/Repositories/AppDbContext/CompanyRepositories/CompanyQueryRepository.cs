@@ -1,6 +1,6 @@
 ﻿using OnlineMuhasebeServer.Domain.AppEntities;
 using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.CompanyRepositories;
-using OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.AppDbContext;
+using OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.AppDBContext;
 
 namespace OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.CompanyRepositories;
 

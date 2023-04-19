@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineMuhasebeServer.Application.Features.AppFeauters.CompanyFeatures.Commands.CreateCompany;
 using OnlineMuhasebeServer.Application.Features.AppFeauters.CompanyFeatures.Commands.MigrateCompanyDatabase;
+using OnlineMuhasebeServer.Application.Features.AppFeauters.CompanyFeatures.Queries.GetAllCompany;
 using OnlineMuhasebeServer.Presentation.Abstraction;
 
 namespace OnlineMuhasebeServer.Presentation.Controller
@@ -24,6 +25,14 @@ namespace OnlineMuhasebeServer.Presentation.Controller
         {
             MigrateCompanyDatabaseCommand request = new MigrateCompanyDatabaseCommand();
             MigrateCompanyDatabaseCommandResponse response = await _mediator.Send(request);
+            return Ok(response);
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetAllCompany()
+        {
+            GetAllCompanyQuery request = new();
+            GetAllCompanyQueryResponse response = await _mediator.Send(request);
             return Ok(response);
         }
     }

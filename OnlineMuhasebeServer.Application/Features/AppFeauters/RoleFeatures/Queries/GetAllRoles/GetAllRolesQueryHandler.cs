@@ -1,5 +1,4 @@
-﻿using MediatR;
-using OnlineMuhasebeServer.Application.Messaging;
+﻿using OnlineMuhasebeServer.Application.Messaging;
 using OnlineMuhasebeServer.Application.Services.AppService;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
