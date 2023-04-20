@@ -1,5 +1,4 @@
-﻿using MediatR;
-using OnlineMuhasebeServer.Application.Messaging;
+﻿using OnlineMuhasebeServer.Application.Messaging;
 using OnlineMuhasebeServer.Application.Services.CompanyService;
 using OnlineMuhasebeServer.Domain.CompanyEntities;
 
@@ -18,7 +17,7 @@ namespace OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures
         {
             UniformChartOfAccount ucaf = await _uCAFService.GetByCode(request.Code, cancellationToken);
             if (ucaf != null) throw new Exception("Hesap planı zaten kayıtlı");
-            await _uCAFService.CreateUCAFAsync(request,cancellationToken);
+            await _uCAFService.CreateUCAFAsync(request, cancellationToken);
             return new();
         }
     }

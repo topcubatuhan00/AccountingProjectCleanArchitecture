@@ -14,7 +14,7 @@ namespace OnlineMuhasebeServer.Presentation.Controller
         [HttpPost("[action]")]
         public async Task<IActionResult> CreateUCAF(CreateUCAFCommand request, CancellationToken cancellationToken)
         {
-            CreateUCAFCommandResponse response = await _mediator.Send(request,cancellationToken);
+            CreateUCAFCommandResponse response = await _mediator.Send(request, cancellationToken);
             return Ok(response);
         }
     }

@@ -2,7 +2,6 @@
 using OnlineMuhasebeServer.Application.Features.AppFeauters.CompanyFeatures.Commands.CreateCompany;
 using OnlineMuhasebeServer.Application.Services.AppService;
 using OnlineMuhasebeServer.Domain.AppEntities;
-using OnlineMuhasebeServer.Persistance.Services.AppService;
 using Shouldly;
 
 namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.CompanyFeatures

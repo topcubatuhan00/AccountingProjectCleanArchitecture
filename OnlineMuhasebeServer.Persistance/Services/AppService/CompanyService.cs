@@ -10,7 +10,7 @@ using OnlineMuhasebeServer.Persistance.Context;
 namespace OnlineMuhasebeServer.Persistance.Services.AppService
 {
     public sealed class CompanyService : ICompanyService
-    {      
+    {
         private readonly ICompanyCommandRepository _companyCommandRepository;
         private readonly ICompanyQueryRepository _companyQueryRepository;
         private readonly IMapper _mapper;
@@ -36,10 +36,10 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
         {
             return _companyQueryRepository.GetAll();
         }
-            
-        public async Task<Company?> GetCompanyByName(string name,CancellationToken cancellationToken)
+
+        public async Task<Company?> GetCompanyByName(string name, CancellationToken cancellationToken)
         {
-            return await _companyQueryRepository.GetFirstByExpression(p => p.Name == name, cancellationToken,false);
+            return await _companyQueryRepository.GetFirstByExpression(p => p.Name == name, cancellationToken, false);
         }
 
         public async Task MigrateCompanyDatabases()

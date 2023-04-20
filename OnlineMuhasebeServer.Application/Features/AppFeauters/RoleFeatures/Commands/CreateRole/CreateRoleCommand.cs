@@ -7,5 +7,5 @@ namespace OnlineMuhasebeServer.Application.Features.AppFeauters.RoleFeatures.Com
             string Code
         )
         : ICommand<CreateRoleCommandResponse>;
-    
+
 }

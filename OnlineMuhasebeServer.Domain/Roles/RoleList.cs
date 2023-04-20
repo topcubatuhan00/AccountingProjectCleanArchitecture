@@ -61,7 +61,7 @@ public sealed class RoleList
 
         return mainRoles;
     }
-         
+
     #region RoleCodeAndNames
     public static string UCAFCreateCode = "UCAF.Create";
     public static string UCAFCreateName = "Hesap planı kayıt.";

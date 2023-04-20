@@ -9,5 +9,5 @@ namespace OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures
             string Type,
             string CompanyId
         ) : ICommand<CreateUCAFCommandResponse>;
-    
+
 }

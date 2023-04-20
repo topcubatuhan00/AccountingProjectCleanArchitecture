@@ -20,13 +20,13 @@ public sealed class MainRoleService : IMainRoleService
 
     public async Task CreateAsync(MainRole mainRole, CancellationToken cancellationToken)
     {
-        await _mainRoleCommandRepository.AddAsync(mainRole,cancellationToken);
+        await _mainRoleCommandRepository.AddAsync(mainRole, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
     }
 
     public async Task CreateRangeAsync(List<MainRole> newMainRoles, CancellationToken cancellationToken)
     {
-        await _mainRoleCommandRepository.AddRangeAsync(newMainRoles,cancellationToken);
+        await _mainRoleCommandRepository.AddRangeAsync(newMainRoles, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
     }
 
@@ -55,7 +55,7 @@ public sealed class MainRoleService : IMainRoleService
 
     public async Task UpdateAsync(MainRole mainRole)
     {
-         _mainRoleCommandRepository.Update(mainRole);
+        _mainRoleCommandRepository.Update(mainRole);
         await _unitOfWork.SaveChangesAsync();
     }
 }

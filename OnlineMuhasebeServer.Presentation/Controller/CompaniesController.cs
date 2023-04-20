@@ -14,7 +14,7 @@ namespace OnlineMuhasebeServer.Presentation.Controller
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> CreateCompany(CreateCompanyCommand request,CancellationToken cancellationToken)
+        public async Task<IActionResult> CreateCompany(CreateCompanyCommand request, CancellationToken cancellationToken)
         {
             CreateCompanyCommandResponse response = await _mediator.Send(request, cancellationToken);
             return Ok(response);

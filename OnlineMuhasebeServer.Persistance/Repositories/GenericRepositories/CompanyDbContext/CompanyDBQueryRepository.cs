@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Domain.Abstractions;
 using OnlineMuhasebeServer.Domain.Repositories.GenericRepositories.CompanyDbContext;
-using OnlineMuhasebeServer.Persistance.Context;
 using System.Linq.Expressions;
 
 namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.CompanyDbContext
@@ -46,7 +45,7 @@ namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.Comp
             return await GetFirstCompiled(_companyDbContext, isTracking);
         }
 
-        public async Task<T> GetFirstByExpression(Expression<Func<T, bool>> expression,CancellationToken cancellationToken=default ,bool isTracking = true)
+        public async Task<T> GetFirstByExpression(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default, bool isTracking = true)
         {
             T entity = null;
             if (!isTracking)

@@ -19,7 +19,7 @@ public class MainRolesController : ApiController
     public async Task<IActionResult> CreateMainRole(CreateMainRoleCommand request, CancellationToken cancellationToken)
     {
         CreateMainRoleCommandResponse response = await _mediator.Send(request, cancellationToken);
-        return Ok(response);    
+        return Ok(response);
     }
 
     [HttpPost("[action]")]

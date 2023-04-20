@@ -7,9 +7,9 @@ namespace OnlineMuhasebeServer.Domain.AppEntities
     {
         public MainRole()
         {
-            
+
         }
-        public MainRole(string id,string title, bool isRoleCreatedByAdmin = false, string companyId = null):base(id)
+        public MainRole(string id, string title, bool isRoleCreatedByAdmin = false, string companyId = null) : base(id)
         {
             Title = title;
             IsRoleCreatedByAdmin = isRoleCreatedByAdmin;

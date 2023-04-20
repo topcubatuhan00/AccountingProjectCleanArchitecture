@@ -1,8 +1,6 @@
 ﻿using Moq;
-using OnlineMuhasebeServer.Application.Features.AppFeauters.MainRoleFeatures.Commands.CreateMainRole;
 using OnlineMuhasebeServer.Application.Features.AppFeauters.MainRoleFeatures.Commands.RemoveMainRole;
 using OnlineMuhasebeServer.Application.Services.AppService;
-using OnlineMuhasebeServer.Domain.AppEntities;
 using Shouldly;
 
 namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.MainRoleFeatures
@@ -25,7 +23,7 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.MainRoleFeatures
                 );
 
             var handler = new RemoveByIdMainRoleCommandHandler(_service.Object);
-            RemoveByIdMainRoleCommandResponse response = await handler.Handle(command,default);
+            RemoveByIdMainRoleCommandResponse response = await handler.Handle(command, default);
             response.ShouldNotBeNull();
             response.Message.ShouldNotBeEmpty();
         }

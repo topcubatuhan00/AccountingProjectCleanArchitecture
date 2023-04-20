@@ -4,7 +4,7 @@ namespace OnlineMuhasebeServer.Domain.Repositories.GenericRepositories.AppDbCont
 {
     public interface IAppQueryRepository<T> : IQueryGenericRepository<T>,
         IRepository<T>
-        where T : Entity 
+        where T : Entity
     {
     }
 }

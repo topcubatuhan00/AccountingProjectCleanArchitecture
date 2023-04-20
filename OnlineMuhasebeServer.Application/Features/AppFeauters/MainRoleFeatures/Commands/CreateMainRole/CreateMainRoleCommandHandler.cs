@@ -15,7 +15,7 @@ public sealed class CreateMainRoleCommandHandler : ICommandHandler<CreateMainRol
 
     public async Task<CreateMainRoleCommandResponse> Handle(CreateMainRoleCommand request, CancellationToken cancellationToken)
     {
-        MainRole checkRoleTitle = await _mainRoleService.GetByTitleAndCompanyId(request.Title,request.CompanyId,cancellationToken);
+        MainRole checkRoleTitle = await _mainRoleService.GetByTitleAndCompanyId(request.Title, request.CompanyId, cancellationToken);
         if (checkRoleTitle != null) throw new Exception("Bu rol daha önce kaydedilmiş");
 
         MainRole mainRole = new(
@@ -23,7 +23,7 @@ public sealed class CreateMainRoleCommandHandler : ICommandHandler<CreateMainRol
                 request.Title,
                 request.CompanyId != null ? false : true,
                 request.CompanyId);
-        await _mainRoleService.CreateAsync(mainRole,cancellationToken);
+        await _mainRoleService.CreateAsync(mainRole, cancellationToken);
         return new();
     }
 }

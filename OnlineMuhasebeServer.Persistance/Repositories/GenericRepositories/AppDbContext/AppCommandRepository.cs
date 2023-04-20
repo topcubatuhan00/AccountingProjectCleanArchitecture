@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Domain.Abstractions;
 using OnlineMuhasebeServer.Domain.Repositories.GenericRepositories.AppDbContext;
-using OnlineMuhasebeServer.Persistance.Context;
 
 namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.AppDbContext;
 

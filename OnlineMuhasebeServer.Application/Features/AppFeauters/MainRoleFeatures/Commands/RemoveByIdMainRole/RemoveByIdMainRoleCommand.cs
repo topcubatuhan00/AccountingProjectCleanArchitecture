@@ -4,5 +4,5 @@ namespace OnlineMuhasebeServer.Application.Features.AppFeauters.MainRoleFeatures
 {
     public sealed record RemoveByIdMainRoleCommand(
             string Id
-        ): ICommand<RemoveByIdMainRoleCommandResponse>;
+        ) : ICommand<RemoveByIdMainRoleCommandResponse>;
 }
