@@ -4,12 +4,14 @@ using OnlineMuhasebeServer.Domain;
 using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.CompanyRepositories;
 using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleAndRoleRelationshipRepositories;
 using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleRepositories;
+using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.UserAndCompanyRelationshipRepositories;
 using OnlineMuhasebeServer.Domain.Repositories.CompanyDbContext.UCAFRepositories;
 using OnlineMuhasebeServer.Domain.UnitOfWorks;
 using OnlineMuhasebeServer.Persistance;
 using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.CompanyRepositories;
 using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleAndRoleRelationshipRepositories;
 using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleRepositories;
+using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.UserAndCompanyRelationshipRepositories;
 using OnlineMuhasebeServer.Persistance.Repositories.CompanyDbContext.UCAFRepositories;
 using OnlineMuhasebeServer.Persistance.Services.AppService;
 using OnlineMuhasebeServer.Persistance.Services.CompanyService;
@@ -32,7 +34,11 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
             services.AddScoped<IUCAFService, UCAFService>();
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IMainRoleService, MainRoleService>();
+            
             services.AddScoped<IMainRoleAndRoleRelationshipService, MainRoleAndRoleRelationshipService>();
+            
+            services.AddScoped<IUserAndCompanyRelationshipService, UserAndCompanyRelationshipService>();
+                        
             #endregion
 
             #region Repositories
@@ -47,6 +53,9 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
             
             services.AddScoped<IMainRoleAndRoleRelationshipCommandRepository, MainRoleAndRoleRelationshipCommandRepository>();
             services.AddScoped<IMainRoleAndRoleRelationshipQueryRepository, MainRoleAndRoleRelationshipQueryRepository>();
+
+            services.AddScoped<IUserAndCompanyRelationshipCommandRepository, UserAndCompanyRelationshipCommandRepository>();
+            services.AddScoped<IUserAndCompanyRelationshipQueryRepository, UserAndCompanyRelationshipQueryRepository>();
             #endregion
 
         }

@@ -11,21 +11,17 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
     {
         private readonly IMainRoleAndRoleRelationshipCommandRepository _commandRepository;
         private readonly IMainRoleAndRoleRelationshipQueryRepository _queryRepository;
-        private readonly IMapper _mapper;
         private readonly IAppUnitOfWork _unitOfWork;
 
         public MainRoleAndRoleRelationshipService(IAppUnitOfWork unitOfWork, IMapper mapper, IMainRoleAndRoleRelationshipQueryRepository queryRepository, IMainRoleAndRoleRelationshipCommandRepository commandRepository)
         {
             _unitOfWork = unitOfWork;
-            _mapper = mapper;
             _queryRepository = queryRepository;
             _commandRepository = commandRepository;
         }
 
         public async Task CreateAsync(MainRoleAndRoleRelationship mainRoleAndRoleRelationship, CancellationToken cancellationToken)
         {
-            //MainRoleAndRoleRelationship mr = _mapper.Map<MainRoleAndRoleRelationship>(mainRoleAndRoleRelationship);
-            //mainRoleAndRoleRelationship.Id = Guid.NewGuid().ToString();
             await _commandRepository.AddAsync(mainRoleAndRoleRelationship, cancellationToken);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
         }
