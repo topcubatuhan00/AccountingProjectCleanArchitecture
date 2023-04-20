@@ -12,6 +12,12 @@ public sealed class MainRoleAndRoleRelationship : Entity
         
     }
 
+    public MainRoleAndRoleRelationship(string roleId, string mainRoleId)
+    {
+        RoleId = roleId;
+        MainRoleId = mainRoleId;
+    }
+
     [ForeignKey("AppRole")]
     public string RoleId { get; set; }
     public AppRole AppRole { get; set; }
