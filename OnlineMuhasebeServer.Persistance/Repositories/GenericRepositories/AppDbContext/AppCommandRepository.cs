@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.Domain.Repositories.GenericRepositories.AppDbContext;
 
 namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.AppDbContext;
 
-public class AppQueryRepository<T> : IAppCommandRepository<T> where T : Entity
+public class AppCommandRepository<T> : IAppCommandRepository<T> where T : Entity
 {
 
     private static readonly Func<Context.AppDbContext, string, Task<T>> GetByIdCompiled =
@@ -12,7 +12,7 @@ public class AppQueryRepository<T> : IAppCommandRepository<T> where T : Entity
             context.Set<T>().FirstOrDefault(p => p.Id == id));
     private readonly Context.AppDbContext _context;
 
-    public AppQueryRepository(Context.AppDbContext context)
+    public AppCommandRepository(Context.AppDbContext context)
     {
         _context = context;
         Entity = _context.Set<T>();

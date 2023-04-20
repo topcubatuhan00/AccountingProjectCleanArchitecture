@@ -4,7 +4,8 @@ using OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.AppDBCon
 
 namespace OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleRepositories;
 
-public sealed class MainRoleQueryRepository : AppQueryRepository<MainRole>, IMainRoleQueryRepository
+public sealed class MainRoleQueryRepository
+    : AppQueryRepository<MainRole>, IMainRoleQueryRepository
 {
     public MainRoleQueryRepository(Context.AppDbContext context) : base(context)
     {

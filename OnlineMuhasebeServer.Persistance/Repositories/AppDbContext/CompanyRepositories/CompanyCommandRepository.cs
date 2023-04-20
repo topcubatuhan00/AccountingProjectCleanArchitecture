@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.AppDbCon
 
 namespace OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.CompanyRepositories;
 
-public class CompanyCommandRepository : AppQueryRepository<Company>, ICompanyCommandRepository
+public class CompanyCommandRepository : AppCommandRepository<Company>, ICompanyCommandRepository
 {
     public CompanyCommandRepository(Context.AppDbContext context) : base(context)
     {

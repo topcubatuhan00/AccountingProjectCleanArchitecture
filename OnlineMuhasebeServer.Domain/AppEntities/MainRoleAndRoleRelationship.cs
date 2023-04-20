@@ -6,6 +6,12 @@ namespace OnlineMuhasebeServer.Domain.AppEntities;
 
 public sealed class MainRoleAndRoleRelationship : Entity
 {
+
+    public MainRoleAndRoleRelationship()
+    {
+        
+    }
+
     [ForeignKey("AppRole")]
     public string RoleId { get; set; }
     public AppRole AppRole { get; set; }
