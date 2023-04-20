@@ -42,6 +42,7 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
             return await _companyQueryRepository.GetFirstByExpression(p => p.Name == name, cancellationToken, false);
         }
 
+
         public async Task MigrateCompanyDatabases()
         {
             var companies = await _companyQueryRepository.GetAll().ToListAsync();

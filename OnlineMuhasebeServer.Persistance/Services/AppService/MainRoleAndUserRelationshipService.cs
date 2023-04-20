@@ -45,6 +45,7 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
         {
             return await _queryRepository.GetFirstByExpression(p => p.UserId == userId && p.CompanyId == companyId, default);
         }
+    
 
         public async Task RemoveByIdAsync(string id)
         {

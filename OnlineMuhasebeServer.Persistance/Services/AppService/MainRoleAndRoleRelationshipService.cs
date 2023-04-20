@@ -36,6 +36,11 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
             return await _queryRepository.GetById(id);
         }
 
+        public async Task<IList<MainRoleAndRoleRelationship>> GetByIdForGetRolesAsync(string id)
+        {
+            return await _queryRepository.GetWhere(p => p.MainRoleId == id).Include("AppRole").ToListAsync();
+        }
+
         public async Task<IList<MainRoleAndRoleRelationship>> GetListByMainRoleIdForGetRolesAsync(string id)
         {
             return await _queryRepository.GetWhere(p => p.MainRoleId == id).Include("AppRole").ToListAsync();

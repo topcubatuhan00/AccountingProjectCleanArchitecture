@@ -45,6 +45,12 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppService
             return await _queryRepository.GetWhere(p => p.AppUserId == userId).Include("Company").ToListAsync();
         }
 
+        public async Task<IList<UserAndCompanyRelationship>> GetUserAndCompanyListByUserId(string id)
+        {
+            return await _queryRepository.GetWhere(p => p.AppUserId == id)
+                .Include("Company").ToListAsync() ;
+        }
+
         public async Task RemoveByIdAsync(string id)
         {
             await _commandRepository.RemoveById(id);

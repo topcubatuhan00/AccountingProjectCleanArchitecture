@@ -41,6 +41,7 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
             
             services.AddScoped<IUserAndCompanyRelationshipService, UserAndCompanyRelationshipService>();
             services.AddScoped<IMainRoleAndUserRelationshipService, MainRoleAndUserRelationshipService>();
+            services.AddScoped<IAuthService, AuthService>();
                         
             #endregion
 

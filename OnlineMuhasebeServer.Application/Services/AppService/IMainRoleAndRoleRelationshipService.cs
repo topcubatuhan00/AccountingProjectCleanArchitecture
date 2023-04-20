@@ -11,5 +11,6 @@ namespace OnlineMuhasebeServer.Application.Services.AppService
         Task<MainRoleAndRoleRelationship> GetByIdAsync(string id);
         Task<IList<MainRoleAndRoleRelationship>> GetListByMainRoleIdForGetRolesAsync(string id);
         Task<MainRoleAndRoleRelationship> GetRoleIdAndMainRoleId(string roleId, string mainRoleId, CancellationToken cancellationToken = default);
+        Task<IList<MainRoleAndRoleRelationship>> GetByIdForGetRolesAsync(string id);
     }
 }
