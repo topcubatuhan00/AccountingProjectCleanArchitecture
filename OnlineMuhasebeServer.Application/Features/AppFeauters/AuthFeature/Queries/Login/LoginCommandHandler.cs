@@ -41,6 +41,7 @@ namespace OnlineMuhasebeServer.Application.Features.AuthFeature.Queries.Login
                 Email: user.Email,
                 UserId: user.Id,
                 NameLastName: user.NameLastName,
+                Year: DateTime.Now.Year,
                 Companies: companiesDto,
                 Company: companiesDto[0]
                 );

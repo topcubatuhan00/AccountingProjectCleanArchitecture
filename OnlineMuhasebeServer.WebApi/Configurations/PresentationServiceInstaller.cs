@@ -12,6 +12,8 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
 
             services.AddScoped<ExceptionMiddleware>();
 
+            services.AddCors(opt => opt.AddDefaultPolicy(op => op.AllowAnyHeader().AllowAnyMethod().AllowCredentials().SetIsOriginAllowed(options => true)));
+
             services.AddControllers()
             .AddApplicationPart(typeof(AssemblyReference).Assembly);
 

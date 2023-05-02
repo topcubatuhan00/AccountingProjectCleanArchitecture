@@ -32,7 +32,7 @@ namespace OnlineMuhasebeServer.WebApi.Middleware
 
             return context.Response.WriteAsync(new ErrorResult
             {
-                Messgage = ex.Message,
+                Message = ex.Message,
                 StatusCode = context.Response.StatusCode
             }.ToString());
         }

@@ -4,7 +4,7 @@ namespace OnlineMuhasebeServer.WebApi.Middleware
 {
     public class ErrorResult : ErrorStatusCode
     {
-        public string Messgage { get; set; }
+        public string Message { get; set; }
     }
 
     public class ErrorStatusCode

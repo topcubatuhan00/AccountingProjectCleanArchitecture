@@ -8,6 +8,7 @@ namespace OnlineMuhasebeServer.Application.Features.AuthFeature.Queries.Login
         string Email,
         string UserId,
         string NameLastName,
+        int Year,
         IList<CompanyDTO> Companies,
         CompanyDTO Company
         );
