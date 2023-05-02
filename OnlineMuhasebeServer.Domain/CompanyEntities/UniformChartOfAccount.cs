@@ -1,4 +1,5 @@
 ﻿using OnlineMuhasebeServer.Domain.Abstractions;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineMuhasebeServer.Domain.CompanyEntities
 {

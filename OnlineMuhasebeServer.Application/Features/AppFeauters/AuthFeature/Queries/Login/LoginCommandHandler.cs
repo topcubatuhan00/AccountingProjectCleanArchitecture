@@ -31,7 +31,7 @@ namespace OnlineMuhasebeServer.Application.Features.AuthFeature.Queries.Login
             if (!checkUser) throw new Exception("Yanlış Şifre");
 
             IList<UserAndCompanyRelationship> companies = await _authService.GetCompanyListAsync(user.Id);
-            IList<CompanyDTO> companiesDto = companies.Select(s => new CompanyDTO(s.Id, s.Company.Name)).ToList();
+            IList<CompanyDTO> companiesDto = companies.Select(s => new CompanyDTO(s.Company.Id, s.Company.Name)).ToList();
 
 
             if (companies.Count == 0) throw new Exception("Kullanıcı herhangi bir şirkete kayıtlı değil");
