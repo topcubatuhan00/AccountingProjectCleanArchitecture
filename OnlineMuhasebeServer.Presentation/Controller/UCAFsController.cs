@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateMainUcaf;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateUCAF;
+using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.RemoveByIdUCAF;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Queries.GetAll;
 using OnlineMuhasebeServer.Presentation.Abstraction;
 
@@ -31,6 +32,13 @@ namespace OnlineMuhasebeServer.Presentation.Controller
         public async Task<IActionResult> GetAll(GetAllUCAFQuery request, CancellationToken cancellationToken)
         {
             GetAllUCAFQueryResponse response = await _mediator.Send(request, cancellationToken);
+            return Ok(response);
+        }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Remove(RemoveByIdUCAFCommand request, CancellationToken cancellationToken)
+        {
+            RemoveByIdUCAFCommandResponse response = await _mediator.Send(request, cancellationToken);
             return Ok(response);
         }
     }

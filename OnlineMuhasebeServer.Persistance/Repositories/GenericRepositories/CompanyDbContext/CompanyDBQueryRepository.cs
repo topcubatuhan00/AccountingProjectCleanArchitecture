@@ -37,7 +37,7 @@ namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.Comp
 
         public async Task<T> GetById(string id, bool isTracking = true)
         {
-            return await GetByIdCompiled(_companyDbContext, id, isTracking);
+            return await _companyDbContext.Set<T>().FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<T> GetFirst(bool isTracking = true)

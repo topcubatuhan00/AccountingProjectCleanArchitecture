@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Azure.Core;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateUCAF;
 using OnlineMuhasebeServer.Application.Services.CompanyService;
@@ -27,6 +28,21 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyService
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _queryRepository = queryRepository;
+        }
+
+        public async Task<bool> CheckRemoveByIdUCAFAvailable(string companyId, string id)
+        {
+            _context = (CompanyDbContext)_contextService.CreateDbContextInstance(companyId);
+            _commandRepository.SetDbContextInstance(_context);
+            _queryRepository.SetDbContextInstance(_context);
+
+            UniformChartOfAccount ucaf = await _queryRepository.GetById(id);
+            if(ucaf.Type == 'G')
+            {
+                IList<UniformChartOfAccount> list = await _queryRepository.GetWhere(p => p.Code.StartsWith(ucaf.Code) && p.Type == 'M').ToListAsync();
+                if(list.Count() > 0) return false;
+            }
+            return true;
         }
 
         public async Task CreateMainUcafsToCompanyAsync(string companyId, CancellationToken cancellationToken)
@@ -2223,6 +2239,23 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyService
         public async Task<UniformChartOfAccount> GetByCode(string code, CancellationToken cancellationToken)
         {
             return await _queryRepository.GetFirstByExpression(p => p.Code == code, cancellationToken);
+        }
+
+        public async Task<UniformChartOfAccount> GetById(string companyId, string id, CancellationToken cancellationToken)
+        {
+            _context = (CompanyDbContext)_contextService.CreateDbContextInstance(companyId);
+            _queryRepository.SetDbContextInstance(_context);
+
+            return await _queryRepository.GetById(id);
+        }
+
+        public async Task RemoveById(string companyId, string id, CancellationToken cancellationToken)
+        {
+            _context = (CompanyDbContext)_contextService.CreateDbContextInstance(companyId);
+            _commandRepository.SetDbContextInstance(_context);
+            _unitOfWork.SetDbContextInstance(_context);
+            await _commandRepository.RemoveById(id);
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 }
