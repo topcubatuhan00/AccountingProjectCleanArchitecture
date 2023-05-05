@@ -12,5 +12,6 @@ namespace OnlineMuhasebeServer.Application.Services.CompanyService
         Task CreateMainUcafsToCompanyAsync(string companyId, CancellationToken cancellationToken);
         Task<IList<UniformChartOfAccount>> GetAllAsync(string companyId);
         Task<bool> CheckRemoveByIdUCAFAvailable(string companyId, string id);
+        Task UpdateAsync(UniformChartOfAccount account, string companyId);
     }
 }

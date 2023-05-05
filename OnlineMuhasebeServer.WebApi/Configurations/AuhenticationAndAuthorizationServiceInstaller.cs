@@ -11,6 +11,7 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
             services.ConfigureOptions<JwtBearerOptionsSetup>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer();
+            services.AddAuthorization();
         }
     }
 }

@@ -2257,5 +2257,15 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyService
             await _commandRepository.RemoveById(id);
             await _unitOfWork.SaveChangesAsync();
         }
+
+        public async Task UpdateAsync(UniformChartOfAccount ucaf, string companyId)
+        {
+            _context = (CompanyDbContext)_contextService.CreateDbContextInstance(companyId);
+            _commandRepository.SetDbContextInstance(_context);
+            _unitOfWork.SetDbContextInstance(_context);
+
+            _commandRepository.Update(ucaf);
+            await _unitOfWork.SaveChangesAsync();
+        }
     }
 }
